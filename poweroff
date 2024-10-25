@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+void log_off() 
+{
+system("pkill -KILL -u $USER"); 
+}
+void restart() 
+{
+system("sudo reboot");
+}
+void shutdown()
+{
+system("sudo shutdown -h now");
+}
+int main()
+{
+int choice;
+printf("Choose an operation:\n");
+printf("1. Log off\n");
+printf("2. Restart\n");
+printf("3. Shutdown\n");
+printf("Enter your choice: ");
+scanf("%d", &choice);
+switch (choice) {
+case 1:
+log_off();
+break;
+case 2:
+restart();
+break;
+case 3:
+shutdown();
+break;
+printf("Invalid choice\n");
+default:
+break;
+}
+return 0;
+}
